@@ -7,6 +7,7 @@
 \usepackage{tikzducks}
 
 \usepackage{tikz} % картинки в tikz
+\usetikzlibrary{shapes, arrows, positioning}
 \usepackage{microtype} % свешивание пунктуации
 
 \usepackage{array} % для столбцов фиксированной ширины
@@ -122,7 +123,28 @@
 Deadline: 2024-09-20, 21:00.
 
 \begin{enumerate}
-\item 
+\item The Cat can be only in two states: Sleeping and Eating. 
+Cat's mood depends only on the previous state. 
+The transition probabilities are given below:
+
+%\begin{minipage}
+    \begin{tikzpicture}[ -> , >=stealth , shorten >=2 pt , line width =0.5 pt, node distance =2 cm ]
+        \node [circle, draw] (zero) {eating};
+        \node [circle, draw] (one) [right of = zero] {sleeping};
+        \path (zero) edge [bend left] node [above] {$0.1$} (one) ;
+        \path (one) edge [bend left] node [below] {$0.2$} (zero) ;
+        \path (zero) edge [loop left] (zero) ;
+        \path (one) edge [loop right] (one) ;
+    \end{tikzpicture}        
+%\end{minipage}
+
+
+\begin{enumerate}
+    \item Compute the missing probabilities on the graph.
+    \item Write down the transition matrix.
+    \item Compute $\P(X_3 = \text{Eating} \mid X_0 = \text{Eating})$.
+\end{enumerate}
+
 \item Cowboy Joe enters the Epsilon Bar and orders one pint of beer. 
 He drinks it and orders one pint more. 
 And so on and so on and so on\dots{ }
