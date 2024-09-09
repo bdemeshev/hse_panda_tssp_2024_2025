@@ -120,7 +120,7 @@
 
 \section*{Home assignment 1}
 
-Deadline: 2024-09-20, 21:00.
+Deadline: 2024-09-23, 21:00.
 
 \begin{enumerate}
 \item The Cat can be only in two states: Sleeping and Eating. 
@@ -157,15 +157,17 @@ We point out that Joe never drinks less than 3 pints in a bar.
 \begin{enumerate}
     \item What is the expected number of pints of beer Joe will drink?
 \end{enumerate}
-Consider the corresponding Markov chain. 
-Let $S_t$ — be the number of watered down pints among the last three pints at time $t \geq 3$.
+
+Let $Y_t$ be the indicator that the pint number $t$ was watered down. 
+Consider the Markov chain $S_t = (y_{t-2}, y_{t-1}, y_t)$.
+For example, $S_t = (100)$ means that the pint number $t-2$ was watered down while pints number $t-1$ and $t$ are good. 
 
 \begin{enumerate}[resume]
 \item What are the possible values of $S_3$ and their probabilities?
-\item Write down the transition matrix of this Markov chain. 
+\item Write down the transition matrix of this Markov chain.
 \end{enumerate}
 
-
+Note: questions (2b) and (2c) were updated!
 
 \item Pavel Durov starts at the point $X_0 = 3$ on the real line. 
 Each minute he moves left with probability $0.4$ or right with probability $0.6$ independently of past moves.
