@@ -118,24 +118,30 @@
 
 \begin{document}
 
+Be brave! You can use python. In this case just provide the code. 
+You can use ChatGPT or any other LLM. In this case just provide the full prompt. 
+Don't panic!
+
+
 \section*{Home assignment 1}
+
 
 Deadline: 2024-09-23, 21:00.
 
 \begin{enumerate}
-\item The Cat can be only in two states: Sleeping and Eating. 
+\item The Cat can be only in two states: Sleeping ($S$) and Eating ($E$). 
 Cat's mood depends only on the previous state. 
 The transition probabilities are given below:
 
 %\begin{minipage}
-    \begin{tikzpicture}[ -> , >=stealth , shorten >=2 pt , line width =0.5 pt, node distance =2 cm ]
-        \node [circle, draw] (zero) {eating};
-        \node [circle, draw] (one) [right of = zero] {sleeping};
-        \path (zero) edge [bend left] node [above] {$0.1$} (one) ;
-        \path (one) edge [bend left] node [below] {$0.2$} (zero) ;
-        \path (zero) edge [loop left] (zero) ;
-        \path (one) edge [loop right] (one) ;
-    \end{tikzpicture}        
+\begin{tikzpicture}[->,>= stealth', shorten >=2pt , line width=0.5pt, node distance=2cm]
+    \node [circle, draw] (one) {$E$};
+    \node [circle, draw] (two) [right of=one] {$S$};
+    \path (one) edge [bend left] node [above] {$0.1$} (two);
+    \path (two) edge [bend left] node [below]{$0.2$} (one);
+    \path (two) edge [loop right] node {} (two);
+    \path (one) edge [loop left] node {} (one);
+\end{tikzpicture}
 %\end{minipage}
 
 
@@ -177,8 +183,9 @@ Let $X_t$ be the coordinate of Pavel after $t$ minutes.
 
 \begin{enumerate}
     \item Write down the transition matrix of this Markov chain. 
-    \item Calculate the distribution of $X_7$.
+    \item Calculate the distribution of $X_7$ [list all values of the random variable $X_7$ and estimate the probabilities].
 \end{enumerate}
+
 
 
 Hint: you are free to use python for this problem :)
@@ -187,10 +194,72 @@ Hint: you are free to use python for this problem :)
 \end{enumerate}
 
 
+\section*{Home assignment 2}
+
+Deadline: 2024-09-27, 21:00.
+
+\begin{enumerate}
+    \item {[10 points]} Consider two identical hedgehogs starting at the vertices $A$ and $B$ of a polygon $ABCD$. 
+    Each minute each hedehog simulteneously and independently chooses to go clockwise to the adjacent point, to go counter-clockwise to the adjacent point or to stay at his location.
+    
+    Thus the brotherhood of two brave hedgehogs can be in three states: in one vertex, 
+    in two adjacent vertices, in two non-adjacent vertices.
+
+  
+    \begin{enumerate}
+      \item Draw the graph for the brotherhood Markov chain and calculate all transition probabilities. 
+      \item Write down the transition matrix of the brotherhood Markov chain. 
+      \item What is the probability that they will be in one vertex after 3 steps?
+    \end{enumerate}
+    
+    \item {[10 points]} Consider the following Markov chain:
+
+    \begin{tikzpicture}[->,>= stealth', shorten >=2pt , line width=0.5pt, node distance=2cm]
+        \node [circle, draw] (one) {$A$};
+        \node [circle, draw] (two) [right of=one] {$B$};
+        \node [circle,  draw] (three) [right of=two] {$C$};
+        \path (one) edge [bend left] node [above] {$0.3$} (two);
+        \path (two) edge [bend right] node [below] {$0.3$} (three);
+        \path (two) edge [bend left] node [below]{$0.7$} (one);
+        \path (three) edge [loop right] node {$0.2$} (three);
+        \path (three) edge [bend right] node [above] {$0.8$} (two);
+        \path (one) edge [loop left] node {$0.7$} (one);
+    \end{tikzpicture}
+
+    \begin{enumerate}
+        \item Find the stationary distribution of this Markov chain.
+    \end{enumerate}
+    
+    The Markov chains starts at the vertex $A$.
+    Let $N$ be the first moment when the state $C$ will be reached.
+
+    \begin{enumerate}[resume]
+      \item Find the expected value $\E(N)$.
+      \item Find the variance $\Var(N)$. 
+    \end{enumerate}
+
+    \item {[10 points]} Bonnie and Clyde start at the points $(5, 0)$ and $(-5, 0)$ of the plane. 
+    Each minute each of them simulteneously and independently makes one step in one of the four possible directions (south, north, east, west).
+
+    Each of them does $n$ steps.
+    Let $X$ be the number of times they will be at the same point.
+    \begin{enumerate}
+        \item Estimate the probability $\P(X \geq 1)$ for $n=50$ using $B=10000$ simulations. 
+        \item Estimate $\E(X)$ and $\Var(X)$ for $n=50$ using $B=10000$ simulations. 
+        \item Plot the estimated value of $\E(X)$ as a function of $n$ for $n$ from $1$ to $200$ using $B=10000$ simulations. 
+    \end{enumerate}
+
+\end{enumerate}
+
 
 \end{document}
 
+
 % здесь проектируемая часть
+
+\item {[10 points]} Design a Markov chain with 3 states such that the stationary distribution is $p = (0.1, 0.2, 0.7)$.
+In your Markov chain it should be possible to reach every state from every state in one or two steps. 
+
 
 \end{document}
 
