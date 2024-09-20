@@ -261,13 +261,83 @@ Deadline: 2024-09-27, 21:00.
 \end{enumerate}
 
 
+
+
+\section*{Home assignment 3}
+
+Deadline: 2024-10-04, 21:00.
+
+\begin{enumerate}
+    \item {[10 points]} We randomly wander on the graph choosing at each moment of time one of the possible directions equiprobably.
+    
+    \begin{tikzpicture}[->,>= stealth', shorten >=2pt , line width=0.5pt, node distance=2cm]
+        \node [circle, draw] (A) {$a$};
+        \node [circle, draw] (B) [right of=A] {$b$};
+        \node [circle, draw] (C) [right of=B] {$c$};
+        \node [circle, draw] (D) [below of=A] {$d$};
+        \node [circle, draw] (E) [right of=D] {$e$};
+        \node [circle, draw] (F) [right of=E] {$f$};
+        \node [circle, draw] (G) [right of=C] {$g$};
+      
+      
+        \path (A) edge (D);
+        \path (D) edge (E);
+        \path (E) edge (A);
+        \path (B) edge (E);
+        \path (B) edge (C);
+        \path (C) edge (F);
+        \path (C) edge (G);
+        \path (F) edge (B);
+      
+      
+        \path (D) edge [loop left] (D);
+        \path (E) edge [loop right] (E);
+        \path (B) edge [loop left] (B);
+        \path (G) edge [loop below] (G);
+    \end{tikzpicture}
+    \begin{enumerate}
+        \item Split each Markov chain into communicating classes. 
+        \item Find the period of every state. 
+        \item Classify each state as transient, null-recurrent and positive recurrent.
+        \item For positive recurrent states find the expected return time.
+        \item Find all stationary distributions. 
+    \end{enumerate}
+        
+    
+    
+    \item {[10 points]} Design a Markov chain with 3 states with unique stationary distribution $\pi = (0.1, 0.2, 0.7)$.
+
+    \item {[10 points]} Consider three games:
+    \begin{enumerate}
+        \item[Game A:] You toss a biased coin with probability $0.48$ of $H$. 
+        You get $+1$ dollar for $H$ and $-1$ dollar for $T$.  
+
+        \item[Game B:] If your wellfare is divisible by three you toss a coin that
+        lands on $H$ with probability $0.1$. 
+        If your wellfare is not divisible by three you toss a coin that lands on $H$ with probability $0.75$.
+        You get $+1$ dollar for $H$ and $-1$ dollar for $T$.  
+        
+        \item[Game C:] You toss an unbiased coin.
+        If it lands on $H$ you play Game A. If it lands on $T$ you play Game B. 
+    \end{enumerate}
+    
+    Your initial capital is $100\$$.
+
+    \begin{enumerate}
+        \item Generate and plot two random trajectories of your wellfare if you play Game A $10000$ times.
+        \item Generate and plot two random trajectories of your wellfare if you play Game B $10000$ times.
+        \item Generate and plot two random trajectories of your wellfare if you play Game C $10000$ times.
+    \end{enumerate}
+
+
+\end{enumerate}
+
+
 \end{document}
 
 
 % здесь проектируемая часть
 
-\item {[10 points]} Design a Markov chain with 3 states such that the stationary distribution is $p = (0.1, 0.2, 0.7)$.
-In your Markov chain it should be possible to reach every state from every state in one or two steps. 
 
 
 \end{document}
