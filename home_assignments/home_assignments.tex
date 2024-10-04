@@ -115,6 +115,7 @@
 \DeclareMathOperator{\card}{card}
 
 \DeclareMathOperator{\Convex}{Convex}
+\DeclareMathOperator{\plim}{plim}
 
 \newcommand \cN{\mathcal{N}}
 \newcommand \RR{\mathbb{R}}
@@ -347,9 +348,14 @@ Deadline: 2024-10-14, 23:59.
         \item $1/(5t - 1)^{2024}$.
     \end{enumerate}
     
-    You may use the table from the article \url{https://en.wikipedia.org/wiki/Moment-generating_function}.
+    You may use the table from the article 
     
-    \item Consider the moment-generating function $g(t) = \frac{\exp(3t) - 1}{3t\exp(-2t)}$ of a random variable $X$.
+    \url{https://en.wikipedia.org/wiki/Moment-generating_function}.
+    
+    \item Consider the moment-generating function of a random variable $X$:
+    \[
+     g(t) = \frac{\exp(3t) - 1}{3t\exp(-2t)}.
+    \]
     
     \begin{enumerate}
         \item Expand the function $g(t)$ as Taylor series up to $t^4$ included. 
@@ -365,7 +371,106 @@ Deadline: 2024-10-14, 23:59.
 \end{enumerate}
 
 
+
+\section*{Home assignment 5}
+
+Deadline: 2024-10-18, 23:59.
+
+\begin{enumerate}
+
+\item {[10 points]} The random variables $X_i$ are independent and exponentially distributed with rate $\lambda = 1$. 
+
+\begin{enumerate}
+    \item Find the probability limit
+    \[
+    \plim \frac{X_1 + X_2 + X_3 + \dots + X_n}{2n + 7}.
+    \]
+    \item Find the probability limit
+    \[
+    \plim \frac{X_1^2 + X_2^2 + X_3^2 + \dots + X_n^2}{2n + 7}.
+    \]
+    \item Find the probability limit
+    \[
+        \plim \min\{X_1, X_2, X_3, \dots, X_n\}.
+    \]
+    \item Find the probability limit
+    \[
+    \plim \sqrt[n]{\exp(2X_1 + 2X_2 + \dots + 2X_n)}.
+    \]
+\end{enumerate}
+
+
+
+\item {[10 points]} Polina loves sweet chestnuts. 
+She has infinite sequence of baskets before her.
+In the basket number~$n$ there are $n$~chestnuts in total.
+Unfortunately only one chestnut in every basket is a sweet one. 
+
+She picks chestnuts one by one at random from all the buskets sequentially. 
+First she picks the unique chestnut from the basket number one, 
+than she picks in a random order two chestnuts from the basket number two and so on. 
+
+The random variable $S_t$ indicates whether the chestnut number $t$ was a sweet one. 
+
+\begin{enumerate}
+  \item Find $\lim S_t$ or prove that the limit does not exist.
+  \item Find $\plim S_t$ or prove that the limit does not exist.
+  \item Find mean square limit of $S_t$ or prove that the limit does not exist. 
+\end{enumerate}
+
+\item {[10 points]} Consider two Markov chains, $(X_t)$ and $(Y_t)$: 
+
+\begin{tikzpicture}[->,>= stealth', shorten >=2pt , line width=0.5pt, node distance=3cm]
+    \node [circle, draw] (one) {$x = -1$};
+    \node [circle, draw] (two) [right of=one] {$x = 0$};
+    \node [circle,  draw] (three) [right of=two] {$x = 1$};
+    % \path (one) edge [bend left] node [above] {$1$} (two);
+    \path (two) edge node [below] {$0.3$} (three);
+    \path (two) edge node [below]{$0.7$} (one);
+    %\path (three) edge [loop right] node {$0.2$} (three);
+    %\path (three) edge [bend right] node [above] {$0.8$} (two);
+    \path (one) edge [loop left] node {$1$} (one);
+    \path (three) edge [loop right] node {$1$} (three);
+\end{tikzpicture} with $X_0 = 0$;
+
+and
+
+\begin{tikzpicture}[->,>= stealth', shorten >=2pt , line width=0.5pt, node distance=3cm]
+    \node [circle, draw] (one) {$y = -1$};
+    \node [circle, draw] (two) [right of=one] {$y = 0$};
+    \node [circle,  draw] (three) [right of=two] {$y = 1$};
+    \node [circle,  draw] (four) [right of=three] {$y = 2$};
+    % \path (one) edge [bend left] node [above] {$1$} (two);
+    \path (two) edge node [below] {$0.3$} (three);
+    \path (two) edge node [below]{$0.7$} (one);
+    % \path (three) edge [loop right] node {$0.2$} (three);
+    \path (three) edge [bend left] node [above] {$0.5$} (four);
+    \path (four) edge [bend left] node [above] {$1$} (three);
+    \path (one) edge [loop left] node {$1$} (one);
+    \path (three) edge [loop below] node {$0.5$} (three);
+\end{tikzpicture} with $Y_0 = 0$.
+
+
+
+\begin{enumerate}
+    \item Find $\P(\lim X_n \text{ exists})$ and $\P(\lim Y_n \text{ exists})$.
+    \item Find the limiting distribution of $(X_n)$ and the limiting distribution of $(Y_n)$.
+
+    Hint: here you need to calculate all limits $\lim \P(X_n = k)$, $\lim \P(Y_n = k)$.
+    
+    \item Does $(X_n)$ converges almost surely? In distribution? In probability?
+    \item Does $(Y_n)$ converges almost surely? In distribution? In probability?
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+
 \end{document}
+
+
+
 
 
 
