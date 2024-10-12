@@ -466,6 +466,58 @@ and
 \end{enumerate}
 
 
+\section*{Home assignment 6}
+
+Deadline: 2024-10-26, 23:59.
+
+\begin{enumerate}
+
+\item {[10 points]} Albert Nikolayevich Shiryaev randomly selects a natural number $N$ from $1$ to $7$.
+Let $Y$ be the remainder after division of $N$ by $2$ and $X$ be the remainder after division of $N$ by $3$. 
+
+\begin{enumerate}
+    \item Write the joint probability table for $(X, Y)$.
+    \item Find $\E(Y \mid X)$. Is it linear in $X$?
+    % \item Find $\E(X \mid Y)$. Is it linear in $Y$?
+    \item Find $\E(\E(Y \mid X))$ and $\Var(\E(Y \mid X))$.
+    \item Find $\Var(Y \mid X)$.
+    \item Find $\E(\Var(Y \mid X))$.
+    % \item Find $\E(\Var(Y \mid X)) + \Var(\E(Y \mid X))$.
+\end{enumerate}
+
+
+\item {[10 points]} Albert Nikolayevich selects a random point uniformly inside a quadrilateral $ABCD$ where $A = (0, 0)$, $B = (0, 2)$,
+$C = (4, 4)$, $D = (4, 0)$.
+
+\begin{enumerate}
+    \item Find $\E(Y \mid X)$ and $\E(X \mid Y)$.
+    \item Find $\Var(Y \mid X)$ and $\Var(X \mid Y)$.
+\end{enumerate}
+
+Hint: you may use the formula for the variance of uniform distribution :)
+
+\item {[10 points]} Albert Nikolayevich selects a random point $(X, Y)$ with joint probability density
+\[
+f(x, y) = \begin{cases}
+    (3x^2 + 4y^3) / 2, \text{ if } x \in [0;1], y \in [0;1]; \\
+    0, \text{ otherwise}. 
+\end{cases}
+\]
+\begin{enumerate}
+    \item For the random variable $x$ find the marginal probability density function $f(x)$.
+    %\footnote{%
+    %Hereinafter we abuse notation. Strictly speaking we shoud write $f_X(x)$ and $f_Y(y)$ because these are different functions.} 
+    \item Find the conditional density $f(y \mid x)$.
+    \item Find the conditional expected value $\E(Y \mid X)$. Is it linear in $X$?
+    \item Find $\Var(Y \mid X)$. Is it constant?
+    \item Find $\E(X)$, $\E(Y)$, $\Cov(X, Y)$ and $\Var(X)$.
+    % \item Find the best linear approximation $Y^* = \beta_0 + \beta_1 X$ of the random variable $Y$.
+    
+    % Hint: Here you should minimize $\E((Y - Y^*)^2)$ with respect to the true constants $\beta_0$ and $\beta_1$.
+\end{enumerate}
+
+\end{enumerate}
+
 
 \end{document}
 
