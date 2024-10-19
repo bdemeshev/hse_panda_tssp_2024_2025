@@ -1,6 +1,8 @@
 % arara: xelatex
 \documentclass[12pt]{article}
 
+% Stochastic Processes, 2024-2025
+
 % \usepackage{physics}
 
 \usepackage{hyperref}
@@ -117,9 +119,14 @@
 \DeclareMathOperator{\Convex}{Convex}
 \DeclareMathOperator{\plim}{plim}
 
-\newcommand \cN{\mathcal{N}}
-\newcommand \RR{\mathbb{R}}
-\newcommand \NN{\mathbb{N}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cH}{\mathcal{H}}
+
+
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
 \newcommand{\hb}{\hat{\beta}}
 
 
@@ -518,6 +525,75 @@ f(x, y) = \begin{cases}
 
 \end{enumerate}
 
+
+
+\section*{Home assignment 7}
+
+Deadline: 2024-11-03, 23:59.
+
+\begin{enumerate}
+\item Experiment may end by one of the six outcomes:
+
+\begin{tabular}{*{4}{c}}
+\toprule
+& $X=-2$ & $X=0$ & $X=2$ \\
+\midrule
+$Y=-1$ & 0.1 & 0.2 & 0.3  \\
+$Y=1$ & 0.2 & 0.1 & 0.1  \\
+\bottomrule
+\end{tabular}
+
+\begin{enumerate}
+  \item Find expicitely the sigma-algebras $\sigma(X)$, $\sigma(Y)$, $\sigma(X \cdot Y)$.
+  \item How many elements are there in $\sigma(X + Y)$, $\sigma(X - Y)$?
+  \item Calculate conditional expected values $\E(X \mid \sigma(Y))$, $\E(X \mid \sigma(X + Y))$.
+\end{enumerate}
+
+
+\item We throw a coin infinitely many times. 
+Let $X_{n}$ be the indicator that the coin landed on Head at toss number $n$.
+Consider a pack of $\sigma$-algebras: $\cF_{n}:=\sigma(X_1, X_2, \ldots, X_n)$, $\cH_{n}:=\sigma(X_{n}, X_{n+1}, X_{n+2}, \ldots)$.
+
+\begin{enumerate}
+\item Simplify experessions: $\cF_{11}\cap \cF_{25}$, $\cF_{11}\cup \cF_{25}$, $\cH_{11}\cup \cH_{25}$.
+
+\item For each case provide two examples of $\sigma$-algebras that contain the corresponding event
+\begin{enumerate}
+\item $\{X_{37}>0 \}$;
+\item $\{X_{37}>X_{2024} \}$;
+\item $\{ X_{37}>X_{2024}>X_{12} \}$;
+\end{enumerate}
+
+\item For each case provide two non-trivial examples (different from $\Omega$ and $\emptyset$) of an event $A$ such that
+
+\begin{enumerate}
+\item $A\in \cF_{2024}$;
+\item $A\notin \cF_{2025}$;
+\item $A \in \cH_{n}$ for all possible $n$;
+\end{enumerate}
+
+
+\end{enumerate}
+
+\item Consider a fair dice. 
+In the experiment we throw the dice until the first six appears.
+
+\begin{enumerate}
+    \item Simulate $B = 100000$ experiments. 
+    For every experiment number $i$ record the total number of throws, $y_i$, and the number of even faces appeared, $x_i$.
+    \item For all values of $x$ where you have more than $100$ records estimate $\hat\mu(x) = \hat{\E}(y_i \mid x_i = x)$ and $\hat v(x) = \widehat{\Var}(y_i \mid x_i = x)$.
+    \item Explain intuitively why $\hat\mu(0)$ is less than $3$. 
+    \item Randomly select $100$ experiments out of all $B$ experiments.
+    Draw the scatter plot $(x_i, y_i)$ for randomly selected experiments.
+    Add the line $\hat\mu(x)$ with bands $\hat\mu(x) \pm 2\sqrt{\hat v(x)}$ to the scatter plot. 
+    \item Is it reasonable to assume that $\hat \mu(x)$ is linear?
+    \item Is it reasonable to assume that $\hat v(x)$ is constant?
+\end{enumerate}
+
+No formal tests are required for the last two questions, graphical analysis is sufficient.
+
+
+\end{enumerate}
 
 \end{document}
 
