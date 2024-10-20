@@ -336,6 +336,39 @@ Deadline: 2024-10-04, 23:59.
         \item Generate and plot two random trajectories of your wellfare if you play Game C $10^6$ times.
     \end{enumerate}
 
+% game_a = function(x) {
+% a = sample(c(-1, +1), size = 1, prob = c(0.52, 0.48))
+% return(x + a)
+% }
+
+% game_b = function(x) {
+% a = sample(c(-1, +1), size = 1, prob = c(0.25, 0.75))
+% b = sample(c(-1, +1), size = 1, prob = c(0.91, 0.09))
+% if ((x %% 3) == 0) {
+%     res = x + b
+% } else {
+%     res = x + a
+% }
+% return(res)
+% }
+
+% game_c = function(x) {
+% a = sample(c(-1, +1), size = 1, prob = c(0.5, 0.5))
+% if (a == 1) {
+%     res = game_a(x)
+% } else {
+%     res = game_b(x)
+% }
+% return(res)
+% }  
+    
+% w = 100
+% for (i in 1:1000000) {
+% print(w)
+% w = game_b(w)
+% }
+      
+
 
 \end{enumerate}
 
