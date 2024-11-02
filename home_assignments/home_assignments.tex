@@ -641,7 +641,36 @@ Let $S_n = X_1 + X_2 + \dots + X_n$ be the cumulative sum.
     \item Find all constants $b$ such that $K_n = \exp(b S_n)$ is a martingale.
 \end{enumerate}
 
-\item 
+\item The population starts with one microbe Eve.
+So the size of the first generations is $G_0 = 1$. 
+After one minute every microbe either dies with probability $0.2$, remains alive with probability $0.5$ or splits in two copies with probability $0.3$.
+Let $G_n$ be the size of microbe population after $n$ minutes.
+
+\begin{enumerate}
+    \item Draw a pretty picture of Eve :)
+    \item Find the distribution of $G_2$. 
+    \item Find a constant $a$ such that $M_n = G_n /a^n$ is a martingale. 
+    \item Let $D$ be the event of eventual death of the microbe civilization. 
+    Check whether the process $K_n = \E(I_D \mid G_n, G_{n-1}, \dots, G_0)$ is martingale. 
+    Here $I_D$ is the indicator of the event $D$.
+    \item Using first step analysis find $\P(D)$.
+    
+    Hint: you may obtain a quadratic equation for $\P(D)$, the smallest root is your friend :)
+\end{enumerate}
+
+\item Consider a symmetric random walk $S_t = X_1 + X_2 +\dots + X_t$ where $(X_t)$ are
+independent identically distributed and take values $+1$ or $-1$ with equal probabilities.
+We start at zero, $S_0 = 0$.
+
+Let $N_k$ the number of visits of point $k$ before the first return of a random walk to $0$.
+
+\begin{enumerate}
+    \item What is the probability that a random walk will eventually return to $0$?
+    \item What is the probability $\P(N_k = 0)$?
+    \item What is the probability $\P(N_k = n)$ for arbitrary natural number $n$?
+    \item Compare $\E(N_2)$ and $\E(N_{\text{undecillion}})$.
+\end{enumerate}
+
 
 
 \end{enumerate}
