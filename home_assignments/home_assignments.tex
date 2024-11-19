@@ -130,6 +130,12 @@
 \newcommand{\hb}{\hat{\beta}}
 
 
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\scalp}{\langle}{\rangle}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
 
 
@@ -676,8 +682,59 @@ Let $N_k$ the number of visits of point $k$ before the first return of a random 
 \end{enumerate}
 
 
+\section*{Home assignment 9}
+
+Deadline: 2024-12-03, 23:59.
 
 
+\begin{enumerate}
+    \item It's $X_0 = -35^{\circ}C$ today in Oymyakon. 
+    Each day the daily temperature $(X_t)$ may go up or down by $2^{\circ}$ degrees with equal probability independently of the previous days. 
+ 
+    Initially my piggy-bank is empty, $B_t = 0$. 
+    Each day I add in my piggy-bank $\abs{X_t}$ undecillion roubles, $B_{t} = B_{t-1} + \abs{X_t}$.
+    I will do my final investment in the piggy-bank when the temperature in Oymyakon will reach $-41^{\circ}C$ or $-25^{\circ}C$.
+    At the end of this day $\tau$ I will break the piggy-bank and go for vacations in Oymyakon. 
+
+    \begin{minipage}{0.9\textwidth}
+        \includegraphics[scale=0.35]{figures/piggy.png}        
+    \end{minipage}
+
+
+    \begin{enumerate}
+        \item Is $(X_t)$ a martingale?
+        \item Using $(X_t)$ and Doob's theorem find $\P(X_{\tau} = -25)$.
+        \item Find a constant $a$ such that $Y_t = X^2_t - a t$ is a martingale.
+        \item Using $(Y_t)$ and Doob's theorem find $\E(\tau)$.
+        \item Find a constant $b$ such that $W_t = B_t - b t$ is a martingale. 
+        \item Find my expected final wellfare $\E(B_{\tau})$.
+    \end{enumerate}
+
+    Comment: you may not check technical conditions of the Doob's theorem.
+
+    \item Consider a Poisson point process $(X_t)$ of snowflakes falling in my palm with intensity $\lambda = 0.5$ snowflakes per second.
+    \begin{enumerate}
+    %    \item Я только что раскрыл ладошку. Какова вероятность того, что следующая снежинка упадёт раньше, чем через три секунды?
+        \item What is the probability that in $5$ I will catch two or more snowflakes?
+        \item I've just opened my palm. What is the probability that the next two snowflakes will fall in less than three seconds?
+        \item Find conditional probability $\P(X_{10} = 5 \mid X_{4} = 1)$.
+        \item Find conditional expected value $\E(X_{10} \mid X_{4} = 1)$ and variance $\Var(X_{10} \mid X_4 = 1)$.
+    \end{enumerate}
+    
+    \item Insurance claims arrive according to Poisson process with intensity $100$ claims per month. 
+The payments for each claim are independent random variables uniformly distributed between $0$ and $1$ undecillion roubles. 
+    
+    Simulate $10^4$ trajectories of this process with monthly duration.
+    
+    \begin{enumerate}
+        \item Draw the histogram of total payments for $10$ days. 
+        \item Estimate the probability that the total payments for $10$ will be more than $12$ undecillion roubles. 
+        \item Estimate reserves necessary for the company that are sufficient to cover all the claims with probability $0.05$.
+        \item Recalculate estimates in (b) and (c) if every saturday and sunday the intensity drops from $100$ to $10$ and 
+        the month starts from monday. 
+    \end{enumerate}
+    
+\end{enumerate}
 
 
 
