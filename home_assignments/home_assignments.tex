@@ -693,7 +693,7 @@ Deadline: 2024-12-03, 23:59.
  
     Initially my piggy-bank is empty, $B_t = 0$. 
     Each day I add in my piggy-bank $\abs{X_t}$ undecillion roubles, $B_{t} = B_{t-1} + \abs{X_t}$.
-    I will do my final investment in the piggy-bank when the temperature in Oymyakon will reach $-41^{\circ}C$ or $-25^{\circ}C$.
+    I will do my final investment in the piggy-bank when the temperature in Oymyakon will reach $-45^{\circ}C$ or $-25^{\circ}C$.
     At the end of this day $\tau$ I will break the piggy-bank and go for vacations in Oymyakon. 
 
     \begin{minipage}{0.9\textwidth}
@@ -703,10 +703,10 @@ Deadline: 2024-12-03, 23:59.
 
     \begin{enumerate}
         \item Is $(X_t)$ a martingale?
-        \item Using $(X_t)$ and Doob's theorem find $\P(X_{\tau} = -25)$.
+        \item Using $(X_t)$ and Doob's theorem or otherwise find $\P(X_{\tau} = -25)$.
         \item Find a constant $a$ such that $Y_t = X^2_t - a t$ is a martingale.
         \item Using $(Y_t)$ and Doob's theorem find $\E(\tau)$.
-        \item Find a constant $b$ such that $W_t = B_t - b t$ is a martingale. 
+        \item Find a constant $b$ such that $W_t = B_t + b X_t t$ is a martingale. 
         \item Find my expected final wellfare $\E(B_{\tau})$.
     \end{enumerate}
 
