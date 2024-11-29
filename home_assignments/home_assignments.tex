@@ -736,7 +736,44 @@ The payments for each claim are independent random variables uniformly distribut
     
 \end{enumerate}
 
+\section*{Home assignment 10}
 
+Deadline: 2024-12-14, 23:59.
+
+\begin{enumerate}
+
+    \item Let $(W_t)$ be a standard Wiener process.
+
+    \begin{enumerate}
+        \item Calculate $\E(W_9 - 2W_6)$, $\Var(W_9 - 2W_6)$, $\P(W_9 - 2W_6 > 1)$.
+        \item Calculate $\E(W_9 - 2W_6 \mid W_1 = 1)$, $\Var(W_9 - 2W_6 \mid W_1 = 1)$, $\P(W_9 - 2W_6 > 1 \mid W_1 = 1)$.
+        \item Calculate $\Cov(W_9, W_6 - W_1)$ and $\Cov(W_9, W_6 - W_1 \mid W_1 = 1)$.
+    \end{enumerate}
+
+    Remark: we will include a similar problem in the exam. 
+
+
+    \item Let $(W_t)$ be a standard Wiener process.
+    Consider three more processes, $R_t = W_t^6 \cos t$, $X_t = Y_t^3 + t^2 Y_t$ and $dY_t = W_t^2 dW_t + tW_t dt$ with $Y_0 = 1$.
+    \begin{enumerate}
+        \item Find $dR_t$ and $dX_t$.
+        \item Represent the process $R_t$ as a sum of an Ito integral and a Riemann integral.
+        \item Check whether $X_t$ is a martingale. 
+        \item Find $\E(Y_t)$.
+        \item Find $\Var(Y_t)$. Hint: find $d(Y_t^2)$ and calculate $\E(Y_t^2)$.
+    \end{enumerate}
+
+
+    \item In the framework of Black and Scholes model find the price at $t=0$ of the following two 
+    financial assets, $dS_t = \mu S_t dt + \sigma S_t dW_t$ is the share price equation. 
+    \begin{enumerate}
+      \item The asset pays you at time $T$ exactly one dollar if $S_T < K$ where $K$ is a constant 
+      specified in the contract. 
+      \item The asset pays you at time $T$ exactly $S_T^2$ dollars.
+    \end{enumerate}
+  
+
+\end{enumerate}
 
 
 \end{document}
