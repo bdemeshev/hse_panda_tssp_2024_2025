@@ -1,0 +1,207 @@
+% arara: xelatex
+\documentclass[12pt]{article}
+
+% \usepackage{physics}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\usepackage{tikzducks}
+
+\usepackage{tikz} % картинки в tikz
+\usetikzlibrary{shapes, arrows, positioning}
+\usepackage{microtype} % свешивание пунктуации
+
+\usepackage{array} % для столбцов фиксированной ширины
+
+\usepackage{indentfirst} % отступ в первом параграфе
+
+\usepackage{sectsty} % для центрирования названий частей
+\allsectionsfont{\centering}
+
+\usepackage{amsmath, amsfonts, amssymb} % куча стандартных математических плюшек
+
+\usepackage{comment}
+
+\usepackage[top=2cm, left=1.2cm, right=1.2cm, bottom=2cm]{geometry} % размер текста на странице
+
+\usepackage{lastpage} % чтобы узнать номер последней страницы
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+\usepackage{caption}
+
+\usepackage{url} % to use \url{link to web}
+
+
+\newcommand{\smallduck}{\begin{tikzpicture}[scale=0.3]
+    \duck[
+        cape=black,
+        hat=black,
+        mask=black
+    ]
+    \end{tikzpicture}}
+
+\usepackage{fancyhdr} % весёлые колонтитулы
+\pagestyle{fancy}
+\lhead{Time Series and Stochastic Processes}
+\chead{}
+\rhead{Midterm exam-2}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{tcolorbox} % рамочки!
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos - печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+
+\setcounter{MaxMatrixCols}{20}
+% by crazy default pmatrix supports only 10 cols :)
+
+
+\usepackage{fontspec}
+\usepackage{libertine}
+\usepackage{polyglossia}
+
+\setmainlanguage{russian}
+\setotherlanguages{english}
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+% \setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+% \newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
+% \setlist[enumerate, 2]{label=\asbuk*),ref=\asbuk*}
+
+%% эконометрические сокращения
+\DeclareMathOperator{\Cov}{\mathbb{C}ov}
+\DeclareMathOperator{\Corr}{\mathbb{C}orr}
+\DeclareMathOperator{\Var}{\mathbb{V}ar}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
+\DeclareMathOperator{\E}{\mathbb{E}}
+% \DeclareMathOperator{\tr}{trace}
+\DeclareMathOperator{\card}{card}
+
+\DeclareMathOperator{\Convex}{Convex}
+\DeclareMathOperator{\plim}{plim}
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\hb}{\hat{\beta}}
+\newcommand{\dPois}{\mathrm{Pois}}
+
+
+\newcommand{\dExpo}{\mathrm{Expo}}
+
+
+
+
+\begin{document}
+
+\begin{enumerate}
+    \item {[10]} I have two pockets: left and right. 
+    I also have two indistinguishable coins. 
+    Initially they are both in the left pocket. 
+    Each moment of time I randomly select one of my pockets. 
+    If it is empty I do nothing. 
+    It it is not empty I move a coin from the selected pocket to another one. 
+
+    Consider the Markov chain where the state is the location of the two coins. 
+    \begin{enumerate}
+        \item {[5]} Draw the diagram and find the transition matrix.
+        \item {[2]} Classify the states.
+        \item {[3]} Which proportion of my eternal life the coins are split in both pockets?
+    \end{enumerate}
+
+
+    \item {[10]} The random variable $X$, $Y$ and $Z$ are independent and normally distributed. 
+    Consider the sigma-algebras
+    \[
+        \cF_1 = \sigma(X, Y), \quad \cF_2 = \sigma(Y, Z), \quad \cF_3 = \sigma(X + Z, Y), \quad \cF_4 = \sigma(X + Y, X - Y), \quad \cF_5 = \sigma(X, Y, X + Y).
+    \]
+
+    \begin{enumerate}
+        \item {[4]} For each sigma-algebra provide two examples of non-trivial (different from $\emptyset$ and $\Omega$) events that belong to it. 
+        \item {[3]} Which of the sigma-algebras are always equal?
+        \item {[3]} Which sigma-algebra is always a subset of another one?
+    \end{enumerate}
+    
+
+    \item {[10]} The random variables $(X_k)$ are independent and uniform on $[0;2]$ and $Y = X_1 + 2X_2 + \dots + 5X_5 + 10$.
+    \begin{enumerate}
+        \item {[4]} Find the moment generating function of $X_1$.
+        \item {[3]} Find the moment generating function of $Y$.
+        \item {[3]} Find $\Var(Y \mid X_2)$.
+        %\item {[4]} Find the moment generating function of $R_n = (S_n - n/2) / \sqrt{n/12}$.
+    \end{enumerate}
+
+  % под замену!
+    \item {[10]} Gleb Zheglov catches one criminal every day. 
+    With probability $0.2$ the catched criminal is replaced by $2$ new criminals. 
+    Initially there is $1$ criminal in the town. 
+    
+    Let $T$ be the day of the ultimate crime eradication in the town. 
+    
+    \begin{enumerate}
+      \item {[4]} Find $\E(T)$.
+      \item {[6]} Find $\Var(T)$.
+    \end{enumerate}
+
+    \item {[10]} The random varible $(X_k)$ are independend and uniform on $[0;1]$.
+    Let $Y_n = X_1 \cdot X_2 \cdot \dots \cdot X_k$.
+    \begin{enumerate}
+        \item {[5]} Does $(X_n)$ converge in probability? In distribution? Explain. 
+        \item {[5]} Does $(Y_n)$ converge in probability? In distribution? Explain.
+    \end{enumerate}
+    
+    \item {[10]} The random variables $(X_n)$ are independent and they have exponential distribution with rate $\lambda = 2$. 
+    Consider the cumulative sum $S_n = X_1 + X_2 + \dots + X_n$ with $S_0 = 0$
+    and the natural filtration $\cF_n = \sigma(X_1, X_2, \dots, X_n)$.
+
+    \begin{enumerate}
+        \item {[4]} Is $\cF = \cF_9 \backslash \cF_7$ a sigma-algebra? Why?
+        \item {[6]} Find all constants $a$ and $b$ such that $M_n = S_n + a + b \cdot n$ is a martingale. 
+    \end{enumerate}
+
+    Hint: if $R \sim \dExpo(\lambda)$ then $\E(R) = 1/\lambda$ and $\Var(R) = 1/\lambda^2$. 
+
+\end{enumerate}
+
+
+\end{document}
+
