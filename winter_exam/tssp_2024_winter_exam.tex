@@ -1,0 +1,216 @@
+% arara: xelatex
+\documentclass[12pt]{article}
+
+% \usepackage{physics}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\usepackage{tikzducks}
+
+\usepackage{tikz} % картинки в tikz
+\usetikzlibrary{shapes, arrows, positioning}
+\usepackage{microtype} % свешивание пунктуации
+
+\usepackage{array} % для столбцов фиксированной ширины
+
+\usepackage{indentfirst} % отступ в первом параграфе
+
+\usepackage{sectsty} % для центрирования названий частей
+\allsectionsfont{\centering}
+
+\usepackage{amsmath, amsfonts, amssymb} % куча стандартных математических плюшек
+
+\usepackage{comment}
+
+\usepackage[top=2cm, left=1.2cm, right=1.2cm, bottom=2cm]{geometry} % размер текста на странице
+
+\usepackage{lastpage} % чтобы узнать номер последней страницы
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+\usepackage{caption}
+
+\usepackage{url} % to use \url{link to web}
+
+
+\newcommand{\smallduck}{\begin{tikzpicture}[scale=0.3]
+    \duck[
+        cape=black,
+        hat=black,
+        mask=black
+    ]
+    \end{tikzpicture}}
+
+\usepackage{fancyhdr} % весёлые колонтитулы
+\pagestyle{fancy}
+\lhead{Time Series and Stochastic Processes}
+\chead{}
+\rhead{Exam, 2024-12-27}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{tcolorbox} % рамочки!
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos - печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+
+\setcounter{MaxMatrixCols}{20}
+% by crazy default pmatrix supports only 10 cols :)
+
+
+\usepackage{fontspec}
+\usepackage{libertine}
+\usepackage{polyglossia}
+
+\setmainlanguage{russian}
+\setotherlanguages{english}
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+% \setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+% \newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
+% \setlist[enumerate, 2]{label=\asbuk*),ref=\asbuk*}
+
+%% эконометрические сокращения
+\DeclareMathOperator{\Cov}{\mathbb{C}ov}
+\DeclareMathOperator{\Corr}{\mathbb{C}orr}
+\DeclareMathOperator{\Var}{\mathbb{V}ar}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
+\DeclareMathOperator{\E}{\mathbb{E}}
+% \DeclareMathOperator{\tr}{trace}
+\DeclareMathOperator{\card}{card}
+
+\DeclareMathOperator{\Convex}{Convex}
+\DeclareMathOperator{\plim}{plim}
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\hb}{\hat{\beta}}
+\newcommand{\dPois}{\mathrm{Pois}}
+
+
+\newcommand{\dExpo}{\mathrm{Expo}}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+
+
+\begin{document}
+
+In this text $(W_t)$ denotes the standard Wiener process\footnote{Броуновское движение [ещё пока не запрещено на территории РФ]}.
+
+
+\begin{enumerate}
+    \item {[10]} We keep our promises! 
+    \begin{enumerate}
+        \item {[3]} What is the distribution of $W_7 + 2W_8$? 
+        % \item {[2]} Find the probability $\P(W_7 + 2W_8 > 1)$ in terms of a standard normal cdf $F()$.
+        \item {[5]} What is the conditional distribution of $(W_7 + 2W_8 \mid W_1 = 2)$?
+        \item {[2]} Find the probability $\P(W_7 + 2W_8 > 1 \mid W_1 = 2)$ in terms of a standard normal cdf $F()$.
+    \end{enumerate}
+
+
+    \item {[10]} Consider processes $X_t = \int_0^t W_u^3 dW_u$ and $Y_t = \int_0^t W_u^4 du$.
+    \begin{enumerate}
+        %\item {[2]} Find $dS_t$.
+        %\item {[2]} Is $(S_t)$ a martingale? Why?
+        \item {[3 + 3]} Find $\E(X_t + Y_t)$ and $\Var(X_t)$.
+        \item {[4]} Find $\Cov(X_t, W_t)$.
+    \end{enumerate}
+
+    \item {[10]} Let $X_t = (W_t + g(t))\exp(-W_t - t/2)$ with $X_0 = 0$.
+    \begin{enumerate}
+        \item {[4 + 2]} Find $dX_t$ and write $X_t$ as a sum of two integrals.
+        \item {[4]} Find at least one function $g(t)$ such that $X_t$ is a martingale.
+    \end{enumerate}
+
+    % \item Consider the Black and Scholes model with riskless rate $r$, volatility $\sigma$ and initial share price $S_0$. 
+
+    % Let $\P^*$ denote the risk-neutral probability that makes discounted share price process a martingale.
+    % \begin{enumerate}
+    %     \item {[3]} Find $\P^*(S_T > 1)$.
+    %     \item {[7]} Find the current price $X_0$ of an option that pays you $X_T = \max\{0, \log S_T\}$ at fixed time $T$.
+    % \end{enumerate}
+    
+    % Hint: you may use the standard normal cumulative distribution function in your answers.
+    
+    \newpage
+    \item {[10]} It's the midterm exam.
+    Five students are sitting in the last row. 
+    The student in the middle of the last row is the only one who brought a calculator. 
+    
+    Every minute his calculator moves one seat to the right (+1) or one seat to the left (-1) with equal probabilities.
+
+    Let's $X_n$ be the coordinate of the calculator at time $n$ with $X_0 = 0$.
+    \begin{enumerate}
+        \item {[4]} Check whether $M_n = X_n^2 - n$ is a martingale.
+        \item {[6]} Find the average time for the calculator to reach the end of the row (left or right).
+    \end{enumerate}
+
+    \item {[10]} Consider a two-period binomial tree model with an initial share price $S_0 = 100$. 
+    The up and down share price multipliers are $u = 2$ and $d = 0.5$. 
+    Risk-free interest rate is $r = 10\%$ in the first period. 
+    The central bank will increase the interest rate in the second period exactly to $r = 20\%$.
+
+    The option is a European call with strike price $K = 300$ and maturity $T = 2$. 
+    %But at the end of the second year, all payments to the option holder will be blocked due to the economical sanctions with probability equal to 0.5.
+    
+    \begin{enumerate}
+        \item {[4]} Find the risk neutral probabilities.
+        \item {[6]} Find the arbitrage free price $X_0$ of this option.
+    \end{enumerate}
+
+    \item {[10]} The assistant has not checked the home assignments in time. 
+    Hence teachers are receiving student complaints according to a Poisson process with daily rate $\lambda = 3$ messages per hour from $7:00$ to $23:00$ and 
+    nightly rate $\lambda = 1$ message per hour from $23:00$ to $7:00$.
+
+    Let $X$ be the number of messages from $6:00$ to $9:00$ and $Y$ — number of messages from $7:00$ to $9:00$.
+    \begin{enumerate}
+        \item {[2+2+2]} Find $\E(X)$, $\Var(X)$ and $\P(X = 2)$.
+        \item {[4]} Find the conditional distribution of $Y$ given that $X = 2$.
+    \end{enumerate}
+% \item мартингал в непрерывном времени? дуб?
+
+
+\end{enumerate}
+
+
+\end{document}
+
