@@ -1,0 +1,223 @@
+% arara: xelatex
+\documentclass[12pt]{article}
+
+% \usepackage{physics}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\usepackage{tikzducks}
+
+\usepackage{tikz} % картинки в tikz
+\usetikzlibrary{shapes, arrows, positioning}
+\usepackage{microtype} % свешивание пунктуации
+
+\usepackage{array} % для столбцов фиксированной ширины
+
+\usepackage{indentfirst} % отступ в первом параграфе
+
+\usepackage{sectsty} % для центрирования названий частей
+\allsectionsfont{\centering}
+
+\usepackage{amsmath, amsfonts, amssymb} % куча стандартных математических плюшек
+
+\usepackage{comment}
+
+\usepackage[top=2cm, left=1.2cm, right=1.2cm, bottom=2cm]{geometry} % размер текста на странице
+
+\usepackage{lastpage} % чтобы узнать номер последней страницы
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+\usepackage{caption}
+
+\usepackage{url} % to use \url{link to web}
+
+
+\newcommand{\smallduck}{\begin{tikzpicture}[scale=0.3]
+    \duck[
+        cape=black,
+        hat=black,
+        mask=black
+    ]
+    \end{tikzpicture}}
+
+\usepackage{fancyhdr} % весёлые колонтитулы
+\pagestyle{fancy}
+\lhead{Time Series and Stochastic Processes}
+\chead{}
+\rhead{Exam, 2025-04-26}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{tcolorbox} % рамочки!
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos - печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+
+\setcounter{MaxMatrixCols}{20}
+% by crazy default pmatrix supports only 10 cols :)
+
+
+\usepackage{fontspec}
+\usepackage{libertine}
+\usepackage{polyglossia}
+
+\setmainlanguage{russian}
+\setotherlanguages{english}
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+% \setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+% \newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
+% \setlist[enumerate, 2]{label=\asbuk*),ref=\asbuk*}
+
+%% эконометрические сокращения
+\DeclareMathOperator{\Cov}{\mathbb{C}ov}
+\DeclareMathOperator{\Corr}{\mathbb{C}orr}
+\DeclareMathOperator{\Var}{\mathbb{V}ar}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+
+
+\usepackage{mathtools} % DeclarePairedDelimiter
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\scalp}{\langle}{\rangle}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
+\DeclareMathOperator{\E}{\mathbb{E}}
+% \DeclareMathOperator{\tr}{trace}
+\DeclareMathOperator{\card}{card}
+
+\DeclareMathOperator{\Convex}{Convex}
+\DeclareMathOperator{\plim}{plim}
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\hb}{\hat{\beta}}
+\newcommand{\dPois}{\mathrm{Pois}}
+
+
+\newcommand{\dExpo}{\mathrm{Expo}}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+
+
+\begin{document}
+
+
+
+\begin{enumerate}
+    \item Unobserved random variables $(y_i)$ are independent and uniform on $[-2a, a]$ with unknown $a > 0$.
+
+    \begin{enumerate}
+        \item {[4]} Find $\E(y_i^2)$ and $\E(\abs{y_i})$.
+        \item {[3]} Find the method of moments estimator of $a$ if you know the value of $\sum y_i^2$.
+        \item {[3]} Find the method of moments estimator of $a$ if you know the value of $\sum \abs{y_i}$.
+    \end{enumerate}
+
+    \item Dragon Erik receives gifts from two kingdoms: $x_1$, $x_2$, \dots, $x_{10}$ from Ex-Kingdom and $y_1$, $y_2$, \dots, $y_{20}$ from Why-Kingdom. 
+    Variables $(x_i)$ are exponentially distributed with rate $\lambda_x$ and variables $(y_i)$ — with rate $\lambda_y$.
+    All variables are independent. 
+    Erik has two hypothesis, $H_0$: $\lambda_x = \lambda_y$ and $H_1$: $\lambda_x \neq \lambda_y$.
+    In the observed sample $\sum x_i = 300$, $\sum y_i = 500$.
+    
+    \begin{enumerate}
+        \item {[4]} Find the unrestricted maximum likelihood estimates of $\lambda_x$ and $\lambda_y$.
+        \item {[3]} Find the maximum likelihood estimate of the rate under $H_0$.
+        \item {[3]} Test $H_0$ against $H_1$ at $0.05$ significance level using likelihood ratio test.
+    \end{enumerate}
+
+    Note: $\P(\chi^2_1 \geq 3.84) =0.05$, $\P(\chi^2_2 \geq 5.99 ) =0.05$, $\P(\chi^2_3 \geq 7.81) = 0.05$.
+
+    \item The variables $(X_i)$ are independent and have exponential distribution with unknown rate $\lambda$.
+    
+    Yuki-the-Hedgehog would like to estimate the unknown parameter $a = 1/\lambda^2$.
+    He uses the estimator
+    \[
+        \hat a = \frac{X_1^2 + X_2^2 + \dots + X_n^2}{2n + 1}
+    \]
+
+    \begin{enumerate}
+        \item {[5]} Is the estimator unbiased?
+        \item {[5]} Is the estimator consistent?
+    \end{enumerate}
+
+    \newpage 
+
+    \item Princess Lika Pankova would like to test the hypothesis $H_0$ that $y_1$ and $y_2$ are independent and uniform on $[0, 1]$ 
+    against the alternative that they have the joint density $f(y_1, y_2) = 2 - y_1 - y_2$ for $y_1, y_2 \in [0, 1]$.
+    
+    Lika accepts only the best! 
+    \begin{enumerate}
+        \item {[7]} Construct the test with $0.1$ probability of the first type error and lowest probability of the second type error.
+        \item {[3]} What is the minimal achieved second type error probability?
+    \end{enumerate}
+    
+    \item Arina loves all kinds of raisin-studded Easter bread, but her grandmother's is her absolute favorite.
+    Grandmother's Easter bread sizes $(y_i)$ are independent identically distributed with density 
+    $f(y) = ab^a/y^{a+1}$ for $y \geq b$ and zero otherwise. 
+
+    \begin{enumerate}
+        \item {[2]} Draw a typical density for some values of parameters $a$ and $b$. 
+        \item {[4]} Find a sufficient statistic for the unknown $a$ given that $b = 1$ kilo. 
+        \item {[4]} Find a sufficient statistic for the unknown $a$ and $b$. 
+    \end{enumerate}
+    
+    \item   The semi-annual $(y_t)$ is modelled by $ETS(ANA)$ process:
+    \[
+    \begin{cases}
+        u_t \sim \cN(0; 9) \\
+        s_t = s_{t-2} + 0.1 u_t \\
+        \ell_t = \ell_{t-1} + 0.3 u_t \\
+        y_t = \ell_{t-1} + s_{t-2} + u_t \\
+    \end{cases}    
+    \]
+    Let $s_{100} = 2$, $s_{99} = -3$, $\ell_{100} = 200$.
+    \begin{enumerate}
+      \item {[6]} Find 95\% predictive interval for $y_{102}$.
+      \item {[4]} Write this model in the form $A(L) y_t = B(L) u_t$, where $A(L)$ and $B(L)$ are lag polynomials.
+    \end{enumerate}
+  
+\end{enumerate}
+
+
+\end{document}
+
